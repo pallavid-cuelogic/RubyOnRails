@@ -1,0 +1,21 @@
+1) To Install Ruby and execute .rb programs:
+sudo apt install ruby
+
+2) Idiomatic style 
+        It is used for naming convention of variables, methods, functions 
+as by putting uderscore in two words and words staring with lower case letters.
+
+3) Question mark ?
+        It is used to check wheather variables is true or false 
+
+4) Exclaimation mark !
+        It is used to state wheather the method is dangerous or not
+
+5) Strip method
+        String class method used for removing leading and trailing white spaces from a string.
+
+6) IRB (Intractive Ruby)
+        IRB stands for “interactive ruby” and is a tool to interactively execute ruby 
+    expressions read from the standard input.
+
+    
