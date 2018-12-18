@@ -44,6 +44,15 @@ either by including it or by extending it.
         Same as backtick but one more advantage of system is it also returns 
 execution status i.e. true or false
 
+** Acceesers
+        In class data is by default private and methods are public
+
+** define method        
+        It is used to define method dynamically
+
+** yield statement
+        It is used to get into block, we can also pass parameters to the yield statement
+
 
 
 
