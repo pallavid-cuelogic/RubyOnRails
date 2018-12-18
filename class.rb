@@ -1,5 +1,9 @@
 class My_class
-    var = 10
+    def var 
+        puts "UNIX"
+    end
 end
 
-cust1 = My_class. new
+obj = My_class. new
+
+puts obj.var

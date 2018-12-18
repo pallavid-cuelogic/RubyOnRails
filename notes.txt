@@ -21,6 +21,33 @@ with capital letters)
 
 ** IRB (Intractive Ruby)
         IRB stands for “interactive ruby” and is a tool to interactively execute ruby 
-    expressions read from the standard input.
+expressions read from the standard input.
+
+** Modules 
+        Modules are similar like class but their are some differences in class and module as 
+modules does not provide object oriented facility as it neither get inherited nor instanciated.
+Modules are simply liabrary of methods, constants, variables. We can use modules in 2 ways
+either by including it or by extending it.
+
+** Inclusion of Module
+        Syntax:  include Module_name
+        by including module the methods gets bind to the object instance
+
+** Extending a Module
+        Syntax:  extend Module_name
+        by extending module the methods gets bind to the class itself
+
+** backtick or %x
+        Used to execute command on shell
+
+** system 
+        Same as backtick but one more advantage of system is it also returns 
+execution status i.e. true or false
+
+
+
+
+
+
 
 
