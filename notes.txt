@@ -1,6 +1,11 @@
 ** To Install Ruby and execute .rb programs:
 sudo apt install ruby
 
+** methods in Ruby
+        Methods are in ruby executed normally like in other languages, in these methods 
+the last executed statement get returned from the method.
+
+
 ** Idiomatic style 
         It is used for naming convention of variables, methods 
 as by putting uderscore in two words and words staring with lower case letters.
@@ -53,7 +58,18 @@ execution status i.e. true or false
 ** yield statement
         It is used to get into block, we can also pass parameters to the yield statement
 
+** idiom 
 
+
+
+** Lambda
+        It is similar like proc, Lambda is unnamed function, If you pass the wrong number of arguments to a lambda, it will raise 
+an exception, just like a regular method.
+
+** IMP Difference between procs and lambda
+        1) Lambdas are defined with -> {} and procs with Proc.new {}.
+2) Procs return from the current method, while lambdas return from the lambda itself.
+3) Procs don’t care about the correct number of arguments, while lambdas will raise an exception.
 
 
 

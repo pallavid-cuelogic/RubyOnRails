@@ -5,4 +5,4 @@ def my_method
     puts "In Method again"
 end
 
-my_method{ puts 'In Block' }
+my_method { puts 'In Block' }
