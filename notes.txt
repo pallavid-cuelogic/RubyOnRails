@@ -71,6 +71,9 @@ an exception, just like a regular method.
 2) Procs return from the current method, while lambdas return from the lambda itself.
 3) Procs don’t care about the correct number of arguments, while lambdas will raise an exception.
 
+** rescue in Exception Handling
+        Everything from begin to rescue is protected. If an exception occurs during the 
+execution of this block of code, control is passed to the block between rescue and end.
 
 
 
