@@ -75,7 +75,87 @@ an exception, just like a regular method.
         Everything from begin to rescue is protected. If an exception occurs during the 
 execution of this block of code, control is passed to the block between rescue and end.
 
+** Array methods
+        1) fetch: it is used to avoiding accessing of null values i.e the index which are out
+        of bound
+        2) first: acsses first element of an Array      
+        3) last: acsses last element of an Array      
+        4) take: used to return the first n elements of an Array
+        5) drop: elements after n elements have been dropped
+        6) length: total no. of elements
+        7) count: same as length
+        8) empty: To check whether an array contains any elements at all
+        9) include: To check whether a particular item is included in the array
+        10) push or <<: Items can be added to the end of an array
+        11) unshift: used to add a new item to the beginning of an array.
+        12) insert: used to add a new element to an array at any position.
+                e.g.
+                arr.insert(3, 'apple')  
+                #=> [0, 1, 2, 'apple', 3, 4, 5, 6]
+                
+                arr.insert(3, 'orange', 'pear', 'grapefruit')
+                #=> [0, 1, 2, "orange", "pear", "grapefruit", "apple", 3, 4, 5, 6]
 
+        13) pop: used to remove the last element in an array and returns i
+        14) shift: To retrieve and at the same time remove the first item
+        15) delete_at: To delete an element at a particular "index"
+        16) delete: To delete a particular "element" anywhere in an array
+        17) compact: A useful method if you need to remove nil values from an array
+                e.g.
+                arr = ['foo', 0, nil, 'bar', 7, 'baz', nil]
+                arr.compact  #=> ['foo', 0, 'bar', 7, 'baz']
+                arr          #=> ['foo', 0, nil, 'bar', 7, 'baz', nil]
+                arr.compact! #=> ['foo', 0, 'bar', 7, 'baz']
+                arr          #=> ['foo', 0, 'bar', 7, 'baz']
 
+        18) uniq: Another common need is to remove duplicate elements from an array.
+        19) each: itreates the array in loop with out changing the array
+                e.g. 
+                arr = [1, 2, 3, 4, 5]
+                arr.each { |a| print a -= 10, " " }
+                # prints: -9 -8 -7 -6 -5
+                #=> [1, 2, 3, 4, 5]
 
+        20) reverse-each: Another sometimes useful iterator is reverse_each which 
+        will iterate over the elements in the array in reverse order
+                e.g.
+                words = %w[first second third fourth fifth sixth]
+                str = ""
+                words.reverse_each { |word| str += "#{word} " }
+                p str #=> "sixth fifth fourth third second first "
+
+        21) map: The map method can be used to create a new array based on the 
+        original array, but with the values modified by the supplied block
+                e.g.
+                arr.map { |a| 2*a }   #=> [2, 4, 6, 8, 10]
+                arr                   #=> [1, 2, 3, 4, 5]
+                arr.map! { |a| a**2 } #=> [1, 4, 9, 16, 25]
+                arr                   #=> [1, 4, 9, 16, 25]
+
+        22) select
+        23) reject
+        24) drop_while
+                e.g.
+                arr = [1, 2, 3, 4, 5, 6]
+                arr.select { |a| a > 3 }     #=> [4, 5, 6]
+                arr.reject { |a| a < 3 }     #=> [3, 4, 5, 6]
+                arr.drop_while { |a| a < 4 } #=> [4, 5, 6]
+                arr                          #=> [1, 2, 3, 4, 5, 6]
+
+        25) delete_if
+        26) keep_if     
+                e.g.
+                arr.delete_if { |a| a < 4 } #=> [4, 5, 6]
+                arr                         #=> [4, 5, 6]
+                arr = [1, 2, 3, 4, 5, 6]
+                arr.keep_if { |a| a < 4 } #=> [1, 2, 3]
+                arr                       #=> [1, 2, 3]
+
+        27) new:
+                new(size=0, default=nil) click to toggle source
+                new(array)
+                new(size) {|index| block }
+
+                a = Array.new(2, Hash.new)
+                # => [{}, {}]
 
