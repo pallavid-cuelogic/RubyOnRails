@@ -21,8 +21,8 @@ books         = {}
 books["matz"]  = "The Language"
 books[:black] = "The Well-Grounded to Earth"
 
-puts books["matz"]
-puts books[:black]
+#puts books["matz"]
+#puts books[:black]
 
 # This way
 Person.create(name: "John Doe", age: 27)
@@ -31,3 +31,5 @@ def self.create(params)
   @name = params[:name]
   @age  = params[:age]
 end
+
+puts Person

@@ -159,3 +159,4 @@ execution of this block of code, control is passed to the block between rescue a
                 a = Array.new(2, Hash.new)
                 # => [{}, {}]
 
+        28) clear: Removes all elements from self.
