@@ -150,6 +150,7 @@ executes JavaScript code outside of a browser.
     it is used for shorthand purpose
     it also does not involves this
 
+
 **promises chaining
     We have a sequence of asynchronous tasks to be done one 
     after another. For instance, loading scripts
@@ -238,6 +239,7 @@ executes JavaScript code outside of a browser.
     boom provides a set of utilities for returning HTTP errors. Each utility returns a 
     Boom error response object
 
+
 **mongoose
     Mongoose is an Object Document Mapper (ODM). This means that Mongoose allows you to define 
     objects with a strongly-typed schema that is mapped to a MongoDB document.
@@ -282,13 +284,11 @@ executes JavaScript code outside of a browser.
     Call the next middleware in the stack.
 
 
-
-
-
-
-
-
-
+**Socket io
+    Socket.IO enables real-time event-based communication between 
+    one or more clients and a server. It works on every platform, browser or device and is 
+    fast and reliable. It's often used in analytics, document collaboration, streaming and 
+    instant messaging.
 
 
 
