@@ -1,0 +1,300 @@
+Node.js is an open-source, cross-platform JavaScript run-time environment that 
+executes JavaScript code outside of a browser. 
+
+**callback
+    The function which is passed to another function as a argument and it is get
+    called "after" success of that function, as in Javascript functions are object so
+    it can take another function as a argument.That another function which gets fucntion as a 
+    argument is called as higher order function, and the function which gets passed to another 
+    function as a argument is called as callback function.
+    IMP link
+    https://codeburst.io/javascript-what-the-heck-is-a-callback-aba4da2deced
+
+
+**promises
+    A promise is an object that may produce a single value some time in the future: either
+    a resolved value, or a reason that it’s not resolved (e.g., a network error occurred). 
+    A promise may be in one of 3 possible states: fulfilled, rejected, or pending. Promise users
+    can attach callbacks to handle the fulfilled value or the reason for rejection.
+
+    A promise is an object which can be returned synchronously from an asynchronous function.
+    It will be in one of 3 possible states:
+    1) Fulfilled: onFulfilled() will be called (e.g., resolve() was called)
+    2) Rejected: onRejected() will be called (e.g., reject() was called)
+    3) Pending: not yet fulfilled or rejected
+
+    The Promise object represents the eventual completion (or failure) of an 
+    asynchronous operation, and its resulting value.
+
+    Promise object has "static methods" and "prototype methods", Static methods in Promise 
+    object can be applied independently, whereas the prototype methods needs to be applied 
+    on the instances of Promise object. Remembering that both normal methods and prototypes 
+    all return a Promise makes it much easier to make sense of things.
+
+    ***very Great example of promise
+    Here is a small story. You are a school going kid and you ask your mom for a phone. 
+    She says “I will buy a phone for this month end.”
+
+    var momsPromise = new Promise(function(resolve, reject) {
+    momsSavings = 20000;
+    priceOfPhone = 60000;
+    if (momsSavings > priceOfPhone) {
+        resolve({
+        brand: "iphone",
+        model: "6s"
+        });
+    } else {
+        reject("We donot have enough savings. Let us save some more money.");
+    }
+    });
+    momsPromise.then(function(value) {
+    console.log("Hurray I got this phone as a gift ", JSON.stringify(value));
+    });
+    momsPromise.catch(function(reason) {
+    console.log("Mom coudn't buy me the phone because ", reason);
+    });
+    momsPromise.finally(function() {
+    console.log(
+        "Irrespecitve of whether my mom can buy me a phone or not, I still love her"
+    );
+    });
+
+
+**async
+    There’s a special syntax to work with promises in a more comfortable fashion, 
+    called “async/await”. It’s surprisingly easy to understand and use.
+
+    Async/Await was created to simplify the process of working with and writing chained promises.
+    
+    Let’s start with the async keyword. It can be placed before a function, like this:
+    async function f() {
+        return 1;
+    }
+
+    The word “async” before a function means one simple thing: a function always 
+    returns a promise. If the code has return <non-promise> in it, then JavaScript 
+    automatically wraps it into a resolved promise with that value.
+
+    async function f() {
+        return 1;
+        }
+    f().then(alert); // 1
+
+    async keyword is used to forcefully return a resolved promise value, the above code is same
+    as
+    async function f() {
+        return Promise.resolve(1);
+    }
+    f().then(alert); // 1
+
+    So, async ensures that the function returns a promise, and wraps non-promises 
+    in it. Simple enough, right? But not only that. There’s another keyword, await, 
+    that works only inside async functions, and it’s pretty cool.
+
+
+**await
+    let value = await promise;
+    The keyword await makes JavaScript wait until that promise settles and returns its result.
+
+    Here’s an example with a promise that resolves in 1 second:
+
+    async function f() {
+
+    let promise = new Promise((resolve, reject) => {
+        setTimeout(() => resolve("done!"), 1000)
+    });
+
+    let result = await promise; // wait till the promise resolves (*)
+
+    alert(result); // "done!"
+    }
+
+    f();
+
+    await literally makes JavaScript wait until the promise settles, 
+    and then go on with the result. That doesn’t cost any CPU resources, because the 
+    engine can do other jobs meanwhile: execute other scripts, handle events etc.
+
+    It’s just a more elegant syntax of getting the promise result 
+    than promise.then, easier to read and write.
+
+    ***Great Example
+    async function showAvatar() {
+
+    // read our JSON
+    let response = await fetch('/article/promise-chaining/user.json');
+    let user = await response.json();
+
+    // read github user
+    let githubResponse = await fetch(`https://api.github.com/users/${user.name}`);
+    let githubUser = await githubResponse.json();
+
+    // show the avatar
+    let img = document.createElement('img');
+    img.src = githubUser.avatar_url;
+    img.className = "promise-avatar-example";
+    document.body.append(img);
+
+    // wait 3 seconds
+    await new Promise((resolve, reject) => setTimeout(resolve, 3000));
+
+    img.remove();
+
+    return githubUser;
+    }
+
+    showAvatar();
+
+
+**arrow function
+    it is used for shorthand purpose
+    it also does not involves this
+
+**promises chaining
+    We have a sequence of asynchronous tasks to be done one 
+    after another. For instance, loading scripts
+
+    new Promise(function(resolve, reject) {
+
+    setTimeout(() => resolve(1), 1000); // (*)
+
+    }).then(function(result) { // (**)
+
+    alert(result); // 1
+    return result * 2;
+
+    }).then(function(result) { // (***)
+
+    alert(result); // 2
+    return result * 2;
+
+    }).then(function(result) {
+
+    alert(result); // 4
+    return result * 2;
+
+    });
+
+
+**Event loops
+    The event loop is what allows Node.js to perform non-blocking I/O operations — 
+    despite the fact that JavaScript is single-threaded — by offloading operations to the 
+    system kernel whenever possible.
+
+
+**webpack
+    Webpack is a module builder
+    The browser doesn't support require(), so we use a build tool to transform the 
+    above files into a "bundled" file that the browser can execute properly.
+    
+    Now we use CommonJS or ES6 modules to put our Javascript in a true dependency graph. 
+    We make small files that explicitly describe what they need
+    
+    Webpack lets you use require() on local "static assets," meaning non-Javascript files.
+    
+    When you require() file paths ending in .png (matching the above regular expression), 
+    Webpack streams that file's contents to the file loader.
+    
+    The file loader does two things. In the bundled Javascript code, it replaces the require() 
+    call with a URL string, making it valid Javascript. 
+
+
+**Bluebird
+    Bluebird is a fully-featured Promise library for JavaScript. The strongest feature of Bluebird 
+    is that it allows you to "promisify" other Node modules in order to use them asynchronously. 
+    Promisify is a concept applied to callback functions. This concept is used to ensure that 
+    every callback function which is called returns some sort of value.
+
+    So if a Node JS module contains a callback function which does not return a value, 
+    if we Promisify the node module, all the function's in that specific node module 
+    would automatically be modified to ensure that it returns a value.
+
+
+**express
+    Express is a minimal and flexible Node.js web application framework that provides 
+    a robust set of features to develop web and mobile applications. It facilitates the 
+    rapid development of Node based Web applications. Following are some of the core features 
+    of Express framework −
+    
+    *Allows to set up middlewares to respond to HTTP Requests.
+
+    *Defines a routing table which is used to perform different actions based on HTTP Method and URL.
+
+    *Allows to dynamically render HTML Pages based on passing arguments to templates.
+
+    Express application uses a callback function whose parameters are request and response objects.
+
+    *Request Object − The request object represents the HTTP request and has properties for the 
+    request query string, parameters, body, HTTP headers, and so on.
+
+    *Response Object − The response object represents the HTTP response that an Express app 
+    sends when it gets an HTTP request.
+
+    You can print req and res objects which provide a lot of information related to HTTP 
+    request and response including cookies, sessions, URL, etc.
+
+
+**boom
+    boom provides a set of utilities for returning HTTP errors. Each utility returns a 
+    Boom error response object
+
+**mongoose
+    Mongoose is an Object Document Mapper (ODM). This means that Mongoose allows you to define 
+    objects with a strongly-typed schema that is mapped to a MongoDB document.
+
+    Mongoose provides an incredible amount of functionality around creating and working 
+    with schemas. Mongoose currently contains eight SchemaTypes that a property is saved 
+    as when it is persisted to MongoDB. They are:
+
+    String
+    Number
+    Date
+    Buffer
+    Boolean
+    Mixed
+    ObjectId
+    Array
+
+
+**CLI (command line interfaces)
+
+
+**bable 
+    it is a transpiler
+    Babel doesn’t actually do anything you need to compile or rather 
+    transpile the code into an ES5 format that the target environment understands.
+
+
+**middlewares
+    Middleware functions are functions that have access to the 
+    request object (req), the response object (res), and the next function in the 
+    application’s request-response cycle. The next function is a function in the Express 
+    router which, when invoked, executes the middleware succeeding the current middleware.
+
+    1) As name suggests it comes in middle of something and that is request and response cycle
+    2) Middleware has access to request and response object
+    3) Middleware has access to next function of request-response life cycle
+
+    *Middleware functions can perform the following tasks:
+    Execute any code.
+    Make changes to the request and the response objects.
+    End the request-response cycle.
+    Call the next middleware in the stack.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

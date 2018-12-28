@@ -2,6 +2,9 @@ require 'csv'
 
 $table = CSV.read("CSVFile.csv", headers: true)
 
+// Read line by line loop
+    // each line represents 1 emp in {}
+    array << {}
 array = Array.new
 
 for i in 0..$table.length-1
@@ -66,6 +69,11 @@ end
 
 def LastSixthMonthEmp(array)
     puts "\n\n===============================> Employees Joined last 6 month ago"
+
+    Date joining 
+
+    Compare today with date of joining
+    
 
     for i in 0..array.length-1
         str = array.fetch(i)["experience"]
@@ -150,9 +158,10 @@ puts "4: Experience Verdict \n"
 puts "5: Department wise Employees\n\n"
 
 print "Enter Your Choice="
-choice = gets
+choice = gets.to_i
 
 puts choice
+puts "choice === #{choice.class}"
 
 case choice
 when 1 

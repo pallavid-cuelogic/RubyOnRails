@@ -160,3 +160,49 @@ execution of this block of code, control is passed to the block between rescue a
                 # => [{}, {}]
 
         28) clear: Removes all elements from self.
+
+** rails Framework
+        rails is a framework which does both work backend and frontend
+                rails new project_name  # to create new project through rails
+                rails server            # to start the rails server
+                localhost:3030          # onto crome to start the project        
+
+        * List of gems
+          1) rails
+          2) bundler
+
+** logging
+        Five different levels of logging in Ruby on rails are 
+        1) debug
+        2) info:- this is the bydefault level
+        3) warn
+        4) error
+        5) fatal        
+
+
+# architecture of nodejs        # single threaded event loop
+# webpack
+# event loop                    # component
+# callback
+# promises
+# async
+# await
+# promises chaining
+# arrow function
+# bluebird
+# boom
+socket io
+joi
+# mongoose
+# express
+middleware
+# hapijs
+cors
+# REST API
+# mongoDB
+passport
+ajax                            # asynchronous javascript and XML
+# bable
+
+
+I need to leave office today at 5 PM so is it possible for you to take my node mock before that?
