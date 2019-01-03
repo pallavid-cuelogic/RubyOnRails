@@ -1,3 +1,29 @@
+# architecture of nodejs        # single threaded event loop
+# webpack
+# event loop                    # component
+# callback
+# promises
+# async
+# await
+# promises chaining
+# arrow function
+# bluebird
+# boom
+# bable
+# mongoose
+# express
+# middleware
+# hapijs
+# REST API
+# mongoDB
+# passport
+# ajax                            # asynchronous javascript and XML
+# socket io
+# joi
+# cors
+
+
+
 Node.js is an open-source, cross-platform JavaScript run-time environment that 
 executes JavaScript code outside of a browser. 
 

@@ -179,28 +179,28 @@ execution of this block of code, control is passed to the block between rescue a
         4) error
         5) fatal        
 
+** ! operator
+        this operator is used to update the current object instead of assign the modified 
+        changes to another object
 
-# architecture of nodejs        # single threaded event loop
-# webpack
-# event loop                    # component
-# callback
-# promises
-# async
-# await
-# promises chaining
-# arrow function
-# bluebird
-# boom
-# bable
-# mongoose
-# express
-# middleware
-# hapijs
-# REST API
-# mongoDB
-# passport
-# ajax                            # asynchronous javascript and XML
-# socket io
-# joi
-# cors
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

@@ -1,10 +1,20 @@
-require 'csv'    
+# last 6 months ago date 
+    # for each emp covert joing date str into Date obj
+    # Compare 2 dates with 6.months
+    # change loop style
+
+
+
+    require 'csv'    
+require 'date'
+
 
 $table = CSV.read("CSVFile.csv", headers: true)
 
-// Read line by line loop
-    // each line represents 1 emp in {}
-    array << {}
+# Read line by line loop
+#    each line represents 1 emp in {}
+#   array << {}
+
 array = Array.new
 
 for i in 0..$table.length-1
@@ -13,7 +23,6 @@ for i in 0..$table.length-1
                 "name" => $table[i]["name"],
                 "age" => $table[i]["age"],
                 "dept" => $table[i]["dept"],
-                "experience" => $table[i]["experience"],
                 "joining_date" => $table[i]["joining_date"]
             }  
 
@@ -27,8 +36,29 @@ def AllEmployeeInfo(array)
 
 end
 
+
+#array.each do |employee|
+ #   Date.new(employee["joining_date"])
+#end
+
+
+
+
 def MaxAgeEmployee(array)
     puts "\n\n===============================> MAX age Employee"
+
+    max = array.group_by{|ele| ele["age"] }
+#    puts max.keys
+
+    max = array.max_by {|element| element["age"]}
+    puts max
+
+    #array.each do |emp|
+     #   puts emp["age"]
+    #end
+
+=begin
+
     max = array.fetch(0)["age"]
 
     for i in 0..array.length-1
@@ -38,13 +68,19 @@ def MaxAgeEmployee(array)
     end
 
     puts max
+=end
 
 end
 
-
 def DeptWiseEmployee(array)
     puts "\n\n===============================> Employees According to Department"
+    a1 = array.group_by{|ele| ele["dept"] }
 
+    puts "a1=====================>>> #{a1}=== #{a1.class}"
+    
+
+
+=begin
     puts "\nEmployees of Department Finance"
     for i in 0..array.length-1
         if array.fetch(i)["dept"] === "Finance"
@@ -65,90 +101,229 @@ def DeptWiseEmployee(array)
             puts array.fetch(i)
         end
     end
+
+=end
+
 end
+
 
 def LastSixthMonthEmp(array)
     puts "\n\n===============================> Employees Joined last 6 month ago"
 
-    Date joining 
+# Date of joining 
 
-    Compare today with date of joining
+# Compare today with date of joining
+# time1 = Time.now  it will also works
+
+    currentDate = Time.new    # YYYY-MM-DD
+    currentDate.inspect
+
+#    puts Date.today - 1.day
+
+    todayTime = Date.today
+
+    month = todayTime.prev_month(6)
     
+    joining_date = array.fetch(1)["joining_date"]
+ 
+    date = Date.parse(joining_date)
 
-    for i in 0..array.length-1
-        str = array.fetch(i)["experience"]
+    # YYYY-MM-DD
 
-        experience = str.split(':')
-        year = experience[0].split('-')
-        month = experience[1].split('-')
+    a = date.month - todayTime.month
 
-        if year[0] === "0" 
-            if month[0] <= "6"
-                puts array.fetch(i)   
+    #puts a
+
+#array.each do |emp|
+     #   puts emp["age"]
+    #end
+
+
+=begin
+    array.each do |emp|
+        joining_date = Date.parse(emp["joining_date"])
+        year = todayTime.year - joining_date.year
+        puts year
+        if year == 0 
+            if joining_date.month >= (todayTime.month - 6)
+                puts emp
+            end
+        end
+
+        if year == 1
+            if joining_date.month >= (todayTime.month + 6)
+                puts emp
             end
         end
     end
+=end
 
+
+    todayTime = Date.today
+
+    prevMonth = todayTime.prev_month(6)
+    
+    puts prevMonth
+
+    joining_date = array.fetch(7)["joining_date"]
+ 
+    date = Date.parse(joining_date)
+
+    if month < date
+        puts "u r in 6 months coverage"
+    end
+
+    prevYear = todayTime.prev_year(2)
+
+    puts prevYear
+
+=begin
+    array.each do |emp|
+        joining_date = Date.parse(emp["joining_date"])
+        if joining_date > prevMonth
+            puts emp
+        end
+    end
+=end
+
+
+    #puts " 1 month ago ==============> #{PrevMonth}"
+
+    # last 6 months ago date 
+    # for each emp covert joing date str into Date obj
+    # Compare 2 dates with 6.months
+=begin
+    str = array.fetch(0)["joining_date"]
+    date = str.split('-')
+    for i in 0..array.length-1
+        str = array.fetch(i)["joining_date"]
+        date = str.split('-')    
+        diffYear = currentDate.year - date[0].to_i 
+        if diffYear == 0
+            monthDiff = currentDate.month - date[1].to_i 
+            if monthDiff <= 6
+                puts array.fetch(i)
+            end
+        end
+        if diffYear == 1
+            if currentDate.month < 6
+                monthDiff = 6 + currentDate.month
+                if date[1].to_i == monthDiff || date[1].to_i > monthDiff
+                    puts array.fetch(i)
+                end
+            end
+        end
+    end
+=end
 end
 
+
+LastSixthMonthEmp(array)
+
+
+
 def EmpVerdict(array)
-    puts "===============================> Experience Verdict\n\n"
+    puts "=======================================> Experience Verdict\n"
 
-    puts "\n\n===============================>Fresher Employees "
+    
+    # last 6 months ago date 
+    # for each emp covert joing date str into Date obj
+    # Compare 2 dates & pass that diff to case stmt
+
+    currentDate = Time.new    # YYYY-MM-DD
+    currentDate.inspect
+
+    str = array.fetch(0)["joining_date"]
+    date = str.split('-')
+
+    puts "\n\n===============================>Fresher Employees who joined in 6 months"
     for i in 0..array.length-1
-        str = array.fetch(i)["experience"]
-
-        experience = str.split(':')
-        year = experience[0].split('-')
-        month = experience[1].split('-')
-
-        if year[0] === "0" 
-            if month[0] <= "6"
-                puts array.fetch(i)   
+        str = array.fetch(i)["joining_date"]
+        date = str.split('-')    
+        diffYear = currentDate.year - date[0].to_i 
+        if diffYear == 0
+            monthDiff = currentDate.month - date[1].to_i 
+            if monthDiff <= 6
+                puts array.fetch(i)
+            end
+        end
+        if diffYear == 1
+            if currentDate.month < 6
+                monthDiff = 6 + currentDate.month
+                if date[1].to_i == monthDiff || date[1].to_i > monthDiff
+                    puts array.fetch(i)
+                end
             end
         end
     end
 
-    puts "\n\n===============================>Beginner Employees "
+    puts "\n\n===============================>Beginner Employees who joined in 6 to 24 months"
     for i in 0..array.length-1
-        str = array.fetch(i)["experience"]
-
-        experience = str.split(':')
-        year = experience[0].split('-')
-        month = experience[1].split('-')
-
-        if year[0] <= "2" and year[0] != "0" 
-            puts array.fetch(i)   
+        str = array.fetch(i)["joining_date"]
+        date = str.split('-')
+        diffYear = currentDate.year -  date[0].to_i
+        if diffYear <= 2 && diffYear >=0
+            if diffYear == 1
+                if currentDate.month > 6
+                    puts array.fetch(i)
+                else
+                    monthDiff = 6 + currentDate.month
+                    if date[1].to_i < monthDiff
+                        puts array.fetch(i)
+                    end
+                end
+            end
         end
     end
 
     puts "\n\n===============================>Implementer Employees "
     for i in 0..array.length-1
-        str = array.fetch(i)["experience"]
+        str = array.fetch(i)["joining_date"]
+        date = str.split('-')
+        diffYear = currentDate.year - date[0].to_i
 
-        experience = str.split(':')
-        year = experience[0].split('-')
-        month = experience[1].split('-')
-
-        if year[0] > "2" and year[0] <= "4" 
-            puts array.fetch(i)   
+        if diffYear >= 2 && diffYear <= 4
+            puts array.fetch(i)
         end
     end
 
     puts "\n\n===============================>Expert Employees "
     for i in 0..array.length-1
-        str = array.fetch(i)["experience"]
+        str = array.fetch(i)["joining_date"]
+        date = str.split('-')
+        diffYear = currentDate.year - date[0].to_i
 
-        experience = str.split(':')
-        year = experience[0].split('-')
-        month = experience[1].split('-')
-
-        if year[0] > "3"  
-            puts array.fetch(i)   
+        if diffYear > 4 
+            puts array.fetch(i)
         end
+
     end
 
+    array.each do |employee|
+        Date.new(employee["joining_date"])
+    end
 end
+
+
+#   array.fetch(1).group_by{|element| puts element }
+
+#   puts array.group_by{|element| element["dept"] == "HR" }
+
+#   array.group_by{|element| element.map {|a| puts a[:dept]}  }
+
+#   puts array.group_by { |e| e.group_by{|element| element } }   
+
+# actual work array group by method
+#a1 = array.group_by{|ele| ele["dept"] }
+#puts "a1=====================>>> #{a1}=== #{a1.class}"
+
+# DeptWiseEmployee(array)
+
+
+#MaxAgeEmployee(array)
+
+
+=begin
 
 puts "\n\n===============================>Employee's Information\n"
 puts "1: All Employee's Information\n"
@@ -160,34 +335,39 @@ puts "5: Department wise Employees\n\n"
 print "Enter Your Choice="
 choice = gets.to_i
 
-puts choice
-puts "choice === #{choice.class}"
+#puts array.group_by{ |d| d[:dept] }
+
+#puts choice
+#puts "choice === #{choice.class}"
+
+for i in 0..array.length-1
+    temp = array.group_by { |age| age[array.fetch(i)["dept"]] }
+end
+
+# puts temp
+
+# puts array.group_by{ |d| d[&:dept] }
 
 case choice
-when 1 
-    puts "something in 1"
+when 1
     AllEmployeeInfo(array)
 
 when 2
-    puts "something in 2"
-
     MaxAgeEmployee(array)
 
 when 3
-    puts "something in 3"
-
     LastSixthMonthEmp(array)
 
 when 4 
-    puts "something in 4"
-
     EmpVerdict(array)
 
 when 5
-    puts "something in 5"
-
     DeptWiseEmployee(array)
 
 else
-    "Error : You have Entered wrong choice"
+   puts "Error : You have Entered wrong choice"
 end
+=end
+
+
+
