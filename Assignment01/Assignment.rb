@@ -128,9 +128,18 @@ def LastSixthMonthEmp(array)
  
     date = Date.parse(joining_date)
 
+    date = todayTime.prev_year(2)
+
+    month = todayTime.prev_year(1)
+
     # YYYY-MM-DD
 
     a = date.month - todayTime.month
+
+    difference = (month - date).to_i
+
+    puts difference
+
 
     #puts a
 
@@ -163,19 +172,20 @@ def LastSixthMonthEmp(array)
 
     prevMonth = todayTime.prev_month(6)
     
-    puts prevMonth
+    #puts prevMonth
 
     joining_date = array.fetch(7)["joining_date"]
  
     date = Date.parse(joining_date)
 
     if month < date
-        puts "u r in 6 months coverage"
+     #   puts "u r in 6 months coverage"
     end
 
     prevYear = todayTime.prev_year(2)
 
-    puts prevYear
+    
+    #puts prevYear
 
 =begin
     array.each do |emp|
@@ -369,5 +379,48 @@ else
 end
 =end
 
+
+
+
+
+
+
+
+
+
+=begin
+    # single loop => 1) calculate expi & decide the verdict
+    puts "\n\n===============================>Fresher Employees who joined in 6 months"
+    array.each do |emp|
+        joining_date = Date.parse(emp["joining_date"])
+        if joining_date > prev6Month
+            puts emp
+        end
+    end
+
+    puts "\n\n===============================>Beginner Employees who joined in 6 to 24 months"
+    array.each do |emp|
+        joining_date = Date.parse(emp["joining_date"])
+        if joining_date < prev6Month && joining_date > prev24Month
+            puts emp
+        end
+    end
+
+    puts "\n\n===============================>Implementer Employees "
+    array.each do |emp|
+        joining_date = Date.parse(emp["joining_date"])
+        if joining_date < prev2Year && joining_date > prev4Year
+            puts emp
+        end
+    end
+
+    puts "\n\n===============================>Expert Employees "
+    array.each do |emp|
+        joining_date = Date.parse(emp["joining_date"])
+        if joining_date < prev3Year
+            puts emp
+        end
+    end
+=end
 
 

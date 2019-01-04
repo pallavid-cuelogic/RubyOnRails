@@ -1,3 +1,6 @@
+# rails s == to run the server
+# rails c == to run the rails console
+
 require 'csv'    
 require 'date'
 
@@ -51,44 +54,29 @@ end
 
 def EmpVerdict(array)
     todayTime = Date.today
+
     prev6Month = todayTime.prev_month(6)
     prev24Month = todayTime.prev_month(24)
     prev2Year = todayTime.prev_year(2)
     prev3Year = todayTime.prev_year(3)
     prev4Year = todayTime.prev_year(4)
 
-    puts "\n\n===============================>Fresher Employees who joined in 6 months"
     array.each do |emp|
         joining_date = Date.parse(emp["joining_date"])
-        if joining_date > prev6Month
-            puts emp
+        difff = (todayTime - joining_date).to_i
+        case difff
+            when 1..180
+                puts " #{emp} is Fresher who joined in 6 month" 
+
+            when 181..720
+                puts " #{emp} is Beginner Employee"
+                
+            when 720..1140
+                puts " #{emp} is Implementor Employee"
+            else
+                puts " #{emp} is Expert Employee"
         end
     end
-
-    puts "\n\n===============================>Beginner Employees who joined in 6 to 24 months"
-    array.each do |emp|
-        joining_date = Date.parse(emp["joining_date"])
-        if joining_date < prev6Month && joining_date > prev24Month
-            puts emp
-        end
-    end
-
-    puts "\n\n===============================>Implementer Employees "
-    array.each do |emp|
-        joining_date = Date.parse(emp["joining_date"])
-        if joining_date < prev2Year && joining_date > prev4Year
-            puts emp
-        end
-    end
-
-    puts "\n\n===============================>Expert Employees "
-    array.each do |emp|
-        joining_date = Date.parse(emp["joining_date"])
-        if joining_date < prev3Year
-            puts emp
-        end
-    end
-
 end
 
 puts "\n\n===============================>Employee's Information\n"
@@ -120,5 +108,3 @@ when 5
 else
    puts "Error : You have Entered wrong choice"
 end
-
-
