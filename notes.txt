@@ -1,3 +1,14 @@
+**editors
+Visual Studio code - normal editor
+Sublime - normal editor
+RoboMongo - mongoDB
+MySQL Workbench - mysql
+Postman - nodejs
+Brackets - normal editor
+DEV C++ - normal editor
+
+
+
 ** To Install Ruby and execute .rb programs:
 sudo apt install ruby
 
@@ -183,7 +194,7 @@ execution of this block of code, control is passed to the block between rescue a
         this operator is used to update the current object instead of assign the modified 
         changes to another object
 
-
+** erb (embedded Ruby)
 
 
 
