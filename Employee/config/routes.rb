@@ -7,6 +7,9 @@ Rails.application.routes.draw do
   root 'welcome#index'    # tells Rails to map requests to the root 
                           # of the application to the welcome controller's index action 
 
+ # employees GET    /employees/:id(.:format)      employees#show
+
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
