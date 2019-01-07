@@ -8,6 +8,10 @@ Brackets - normal editor
 DEV C++ - normal editor
 
 
+# kill -9 PID   # to kill the process when server is already runing
+
+
+
 
 ** To Install Ruby and execute .rb programs:
 sudo apt install ruby
