@@ -1,6 +1,47 @@
 <h1>Editing Information</h1>
 
-<%= render 'form' %>
+<%= form_for :employee, url: employee_path(@employee), method: :patch do |emp| %>
+ 
+  <% if @employee.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@employee.errors.count, "error") %> prohibited
+        this Information from being saved:
+      </h2>
+      <ul>
+        <% @employee.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <p>
+    <%= emp.label :Name %><br>
+    <%= emp.text_field :name %>
+  </p>
+ 
+  <p>
+    <%= emp.label :Age %><br>
+    <%= emp.number_field :age %>
+  </p>
+ 
+  <p>
+    <%= emp.label :Department %><br>
+    <%= emp.text_field :dept %>
+  </p>
+ 
+   <p>
+    <%= emp.label :Joining_Date %><br>
+    <%= emp.date_field :date %>
+  </p>
+
+  <p>
+    <%= emp.submit %>
+  </p>
+ 
+<% end %>
+<br>
 
 <%= link_to '<button type="button">Back</button>'.html_safe, employees_path %>
 
