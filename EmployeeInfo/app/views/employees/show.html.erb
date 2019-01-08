@@ -1,0 +1,26 @@
+<p>
+  <strong>Name:</strong>
+  <%= @employee.name %>
+</p>
+
+<p>
+  <strong>Age:</strong>
+  <%= @employee.age %>
+</p>
+
+<p>
+  <strong>Department:</strong>
+  <%= @employee.dept %>
+</p>
+
+<p>
+  <strong>Joining Date:</strong>
+  <%= @employee.date %>
+</p>
+
+<br>
+
+<%= link_to '<button type="button">Edit</button>'.html_safe, edit_employee_path(@employee) %>
+
+<%= link_to '<button type="button">Back</button>'.html_safe, employees_path %>
+

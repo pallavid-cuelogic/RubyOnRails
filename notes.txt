@@ -7,6 +7,8 @@ Postman - nodejs
 Brackets - normal editor
 DEV C++ - normal editor
 
+** put "d" in command to revert/remove back the changes
+
 
 # kill -9 PID   # to kill the process when server is already runing
 

@@ -1,0 +1,29 @@
+<h1>Listing Employees</h1>
+
+<%= link_to '<button type="button">Insert New Employee</button>'.html_safe, new_employee_path %>
+
+<br>
+<br>
+<table>
+  	<tr>
+	    <th>Name</th>
+	    <th>Age</th>
+	    <th>Department</th>
+	    <th>Joining Date</th>
+  	</tr>
+ 	
+	<% @employee.each do |employee| %>
+	    <tr>
+	    	<td><%= employee.name %></td>
+	    	<td><%= employee.age %></td>
+	    	<td><%= employee.dept %></td>
+	    	<td><%= employee.date %></td>
+	<td><%= link_to '<button type="button">View Details</button>'.html_safe, employee_path(employee) %></td>
+	<td><%= link_to '<button type="button">Edit</button>'.html_safe, edit_employee_path(employee) %></td>
+	<td><%= link_to '<button type="button">Delete</button>'.html_safe, employee_path(employee),
+              method: :delete,
+              data: { confirm: 'Are you sure ?' } %></td>
+		</tr>
+	<% end %>
+
+</table>
