@@ -317,7 +317,7 @@ execution of this block of code, control is passed to the block between rescue a
                 wrapped in a cache block and served out of the cache store 
                 when the next request comes in.
 
-
+Third party API's
 
 
 

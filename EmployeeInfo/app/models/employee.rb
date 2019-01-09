@@ -5,4 +5,9 @@ class Employee < ActiveRecord::Base
 	validates :dept, presence: true
 	validates :date, presence: true
 	               
+	def update_employee
+		put "abc"
+	end
+
+
 end
