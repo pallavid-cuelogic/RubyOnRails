@@ -12,9 +12,6 @@ DEV C++ - normal editor
 
 # kill -9 PID   # to kill the process when server is already runing
 
-
-
-
 ** To Install Ruby and execute .rb programs:
 sudo apt install ruby
 
@@ -47,10 +44,12 @@ expressions read from the standard input.
 
 ** Modules 
         Modules are similar like class but their are some differences in class and module as 
-modules does not provide object oriented facility as it neither get inherited nor instanciated.
-Modules are simply liabrary of methods, constants, variables. We can use modules in 2 ways
-either by including it or by extending it.
-
+gems are plugins, additional functionalities of a product designed to fulfill specific goals.ity 
+as it neither get inherited nor instanciated.
+gems are plugins, additional functionalities of a product designed to fulfill specific goals.nts, 
+variables. We can use modules in 2 ways
+gems are plugins, additional functionalities of a product designed to fulfill specific goals.
+gems are plugins, additional functionalities of a product designed to fulfill specific goals.
 ** Inclusion of Module
         Syntax:  include Module_name
         by including module the methods gets bind to the object instance
@@ -80,8 +79,9 @@ execution status i.e. true or false
 
 
 ** Lambda
-        It is similar like proc, Lambda is unnamed function, If you pass the wrong number of arguments to a lambda, it will raise 
-an exception, just like a regular method.
+        It is similar like proc, Lambda is unnamed function, If you pass the wrong 
+        number of arguments to a lambda, it will raise 
+        an exception, just like a regular method.
 
 ** IMP Difference between procs and lambda
         1) Lambdas are defined with -> {} and procs with Proc.new {}.
@@ -201,6 +201,132 @@ execution of this block of code, control is passed to the block between rescue a
         changes to another object
 
 ** erb (embedded Ruby)
+
+
+
+**Ruby gems
+        Gems are plugins, additional functionalities of a product designed to fulfill specific goals.
+        IMP link- https://codebrahma.com/best-gems-for-ruby-on-rails-web-applications/
+
+        1) Rails
+                People often forget that Rails itself is a gem written in Ruby. It is a web 
+                application framework that includes all the basic requirements for making 
+                database-backed web applications adherent to the 
+                Model-View-Controller (MVC) template. It facilitates use of web 
+                standard languages like HTML, JavaScript or CSS inside the application environment.
+
+        2) Turbolinks
+                Turbolinks speeds up opening links in the application by letting the browser refresh 
+                only those parts of the page that change and keeping the already compiled 
+                JavaScript and CSS in place. Turbolinks is very light 
+                on memory, which makes it perfectly suited for mobile 
+                applications and is self-contained, This is an introduction to three types 
+                of caching techniques: page, action and fragment caching. By default Rails 
+                provides fragment caching. In order to use page and action caching you 
+                will need to add  actionpack-page_caching and actionpack-action_caching to your Gemfiletion.
+
+        3) Devise
+                This is an introduction to three types of caching techniques: page, 
+                action and fragment caching. By default Rails provides fragment caching. 
+                In order to use page and action caching you will need to add  actionpack-page_caching 
+                and actionpack-action_caching to your Gemfile
+                Devise is a flexible authentication solution for Rails based on Warden. 
+                It comprises 10 modules that might be used as needed without fostering 
+                any dependencies in the code and also permits you 
+                to have more than one model signed in at the same time. Devise executes in a completely 
+                thread-safe manner on YARV. Devise supports authentication through both Forms and HTTP Basic 
+                Authentication, supports OmniAuth and has various useful features like sending emails 
+                with authentication confirmation instructions or password reset instructions, etc.
+
+        4) Sidekiq
+                Sidekiq is a full-featured framework for Ruby that offers simple and efficient 
+                background processing and is designed to be easy to integrate with any modern Rails 
+                application. Sidekiq uses multithreading to handle several jobs in the same process 
+                simultaneously. It is fully compatible with Resque.
+
+        5) kaminari
+
+
+
+
+**TDD (Test-driven development)
+        Test-driven development" refers to a style of programming in which 
+        three activities are tightly interwoven: coding, testing (in the form of writing unit tests)
+        and design (in the form of refactoring).
+
+**assets
+        Generally asset is anything that browser loads after it gets the HTML 
+        page. Meaning javascript, css and any images. But as you pointed out there are two 
+        different image types in a rails project.
+        1) the images related to your css and layout design, those go under the app/assets/images 
+        2) the images that your users upload, those normally go into the public/system or public/uploads 
+        folder depending on what you use to receive the uploads
+
+        The lib/assets (or sometimes vendor/assets) is where you supposed to place js/css/images 
+        related to your front-end design and provided by third party libs. Say if you want to pull
+        in some css or a js framework, that were you should place it.
+
+        And finally public/assets is where rails will compile your layout assets from 
+        the app/assets and vendor/assets folders when you run rake assets:precompile task for production.
+
+        To have it short, your design stuff goes to app/assets, and the user uploads go into public/system
+
+**Asset Pipeline
+        The asset pipeline provides a framework to concatenate and minify or compress 
+        JavaScript and CSS assets. It also adds the ability to write these assets in other 
+        languages and pre-processors such as CoffeeScript, Sass and ERB. It allows assets in 
+        your application to be automatically combined with assets from other gems.
+
+        The asset pipeline is implemented by the sprockets-rails gem, and is enabled by default. 
+        You can disable it while creating a new application by passing the --skip-sprockets option.
+
+        * command - rails new appname --skip-sprockets
+        * use - Rails automatically adds the sass-rails, coffee-rails and uglifier 
+        gems to your Gemfile, which are used by Sprockets for asset compression:
+
+
+**caching
+        This is an introduction to three types of caching techniques: page, 
+        action and fragment caching. By default Rails provides fragment caching. 
+        In order to use page and action caching you will need to add  actionpack-page_caching 
+        and actionpack-action_caching to your Gemfile
+
+        1) Page Caching
+                Page caching is a Rails mechanism which allows the request for a 
+                generated page to be fulfilled by the webserver (i.e. Apache or NGINX) 
+                without having to go through the entire Rails stack. While this 
+                is super fast it can't be applied to every situation (such as pages 
+                that need authentication). Also, because the webserver is serving a file 
+                directly from the filesystem you will need to implement cache expiration.
+
+        2) Action Caching
+                Page Caching cannot be used for actions that have before 
+                filters - for example, pages that require authentication. This 
+                is where Action Caching comes in. Action Caching works like Page 
+                Caching except the incoming web request hits the Rails stack so 
+                that before filters can be run on it before the cache is served. 
+                This allows authentication and other restrictions to be run while 
+                still serving the result of the output from a cached copy.
+
+        3) Fragment Caching
+                Dynamic web applications usually build pages with a variety of 
+                components not all of which have the same caching characteristics. 
+                When different parts of the page need to be cached and expired separately 
+                you can use Fragment Caching.
+                Fragment Caching allows a fragment of view logic to be 
+                wrapped in a cache block and served out of the cache store 
+                when the next request comes in.
+
+
+
+
+
+
+
+
+
+
+
 
 
 

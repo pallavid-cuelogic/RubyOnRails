@@ -49,3 +49,7 @@ class EmployeesController < ApplicationController
 	  	end
 
 end
+
+
+class NewClass < ApplicationController
+end
