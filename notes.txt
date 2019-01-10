@@ -317,11 +317,24 @@ execution of this block of code, control is passed to the block between rescue a
                 wrapped in a cache block and served out of the cache store 
                 when the next request comes in.
 
-Third party API's
+
+Have a look on Third party API's
+
+when we want to write code that is very much specific to database 
+then it should not be written in Controller class it will go in 
+model's class ( note:- don’t make your Controller heavy )
 
 
 
 
+
+
+
+13300 - 443 = 5759
+
+20786 - 692 = 11764
+
+17523 + 692 = 18215
 
 
 
