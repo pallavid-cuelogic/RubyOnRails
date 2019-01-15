@@ -1,0 +1,16 @@
+<h1>Custom Routes</h1>
+
+<%= form_tag :cr, :controller => 'log', :action => 'my_data', :id => 'my_form', :remote => true do |w| %>
+  <p>
+    <%= w.label :Enter %>
+    <%= w.text_field :word %>
+  </p>
+  <p>
+    <%= link_to "Search", first_index_path %>
+  </p>
+<% end %>
+
+
+<div id="logs" >
+	<%= render 'create' %>
+</div>

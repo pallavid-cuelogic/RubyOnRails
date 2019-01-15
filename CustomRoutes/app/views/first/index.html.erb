@@ -1,0 +1,22 @@
+<h1>Custom Routes</h1>
+
+<%= form_for :cr, remote: true do |w| %>
+  	<p>
+    	<%= w.label :Enter %>
+    	<%= w.text_field :word %>
+  	</p>
+  	<p>
+    	<%= link_to "Search", first_path(@cr), remote: true %>
+  	</p>
+
+	<p>
+		<%= @cr %>
+	</p>
+	
+<% end %>
+
+<div>
+	<p>
+		<%= @cr %>
+	</p>
+</div>

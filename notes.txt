@@ -1,0 +1,365 @@
+**editors
+Visual Studio code - normal editor
+Sublime - normal editor
+RoboMongo - mongoDB
+MySQL Workbench - mysql
+Postman - nodejs
+Brackets - normal editor
+DEV C++ - normal editor
+
+** put "d" in command to revert/remove back the changes
+
+
+# kill -9kill -9 PID   # to kill the process when server is already runing
+
+** To Install Ruby and execute .rb programs:
+sudo apt install ruby
+
+** methods in Ruby
+        Methods are in ruby executed normally like in other languages, in these methods 
+the last executed statement get returned from the method.
+
+
+** Idiomatic style 
+        It is used for naming convention of variables, methods 
+as by putting uderscore in two words and words staring with lower case letters.
+
+** Constant
+        The variable name or class names starts with capital letters are meant to be 
+constants (Constant's name and Class name should be Constant i.e. it should starts 
+with capital letters) 
+
+** Question mark ?
+        It is used to check wheather variables is true or false 
+
+** Exclaimation mark !
+        It is used to state wheather the method is dangerous or not
+
+** Strip method
+        String class method used for removing leading and trailing white spaces from a string.
+
+** IRB (Intractive Ruby)
+        IRB stands for “interactive ruby” and is a tool to interactively execute ruby 
+expressions read from the standard input.
+
+** Modules 
+        Modules are similar like class but their are some differences in class and module as 
+gems are plugins, additional functionalities of a product designed to fulfill specific goals.ity 
+as it neither get inherited nor instanciated.
+gems are plugins, additional functionalities of a product designed to fulfill specific goals.nts, 
+variables. We can use modules in 2 ways
+gems are plugins, additional functionalities of a product designed to fulfill specific goals.
+gems are plugins, additional functionalities of a product designed to fulfill specific goals.
+** Inclusion of Module
+        Syntax:  include Module_name
+        by including module the methods gets bind to the object instance
+
+** Extending a Module
+        Syntax:  extend Module_name
+        by extending module the methods gets bind to the class itself
+
+** backtick or %x
+        Used to execute command on shell
+
+** system 
+        Same as backtick but one more advantage of system is it also returns 
+execution status i.e. true or false
+
+** Acceesers
+        In class data is by default private and methods are public
+
+** define method        
+        It is used to define method dynamically
+
+** yield statement
+        It is used to get into block, we can also pass parameters to the yield statement
+
+** idiom 
+
+
+
+** Lambda
+        It is similar like proc, Lambda is unnamed function, If you pass the wrong 
+        number of arguments to a lambda, it will raise 
+        an exception, just like a regular method.
+
+** IMP Difference between procs and lambda
+        1) Lambdas are defined with -> {} and procs with Proc.new {}.
+2) Procs return from the current method, while lambdas return from the lambda itself.
+3) Procs don’t care about the correct number of arguments, while lambdas will raise an exception.
+
+** rescue in Exception Handling
+        Everything from begin to rescue is protected. If an exception occurs during the 
+execution of this block of code, control is passed to the block between rescue and end.
+
+** Array methods
+        1) fetch: it is used to avoiding accessing of null values i.e the index which are out
+        of bound
+        2) first: acsses first element of an Array      
+        3) last: acsses last element of an Array      
+        4) take: used to return the first n elements of an Array
+        5) drop: elements after n elements have been dropped
+        6) length: total no. of elements
+        7) count: same as length
+        8) empty: To check whether an array contains any elements at all
+        9) include: To check whether a particular item is included in the array
+        10) push or <<: Items can be added to the end of an array
+        11) unshift: used to add a new item to the beginning of an array.
+        12) insert: used to add a new element to an array at any position.
+                e.g.
+                arr.insert(3, 'apple')  
+                #=> [0, 1, 2, 'apple', 3, 4, 5, 6]
+                
+                arr.insert(3, 'orange', 'pear', 'grapefruit')
+                #=> [0, 1, 2, "orange", "pear", "grapefruit", "apple", 3, 4, 5, 6]
+
+        13) pop: used to remove the last element in an array and returns i
+        14) shift: To retrieve and at the same time remove the first item
+        15) delete_at: To delete an element at a particular "index"
+        16) delete: To delete a particular "element" anywhere in an array
+        17) compact: A useful method if you need to remove nil values from an array
+                e.g.
+                arr = ['foo', 0, nil, 'bar', 7, 'baz', nil]
+                arr.compact  #=> ['foo', 0, 'bar', 7, 'baz']
+                arr          #=> ['foo', 0, nil, 'bar', 7, 'baz', nil]
+                arr.compact! #=> ['foo', 0, 'bar', 7, 'baz']
+                arr          #=> ['foo', 0, 'bar', 7, 'baz']
+
+        18) uniq: Another common need is to remove duplicate elements from an array.
+        19) each: itreates the array in loop with out changing the array
+                e.g. 
+                arr = [1, 2, 3, 4, 5]
+                arr.each { |a| print a -= 10, " " }
+                # prints: -9 -8 -7 -6 -5
+                #=> [1, 2, 3, 4, 5]
+
+        20) reverse-each: Another sometimes useful iterator is reverse_each which 
+        will iterate over the elements in the array in reverse order
+                e.g.
+                words = %w[first second third fourth fifth sixth]
+                str = ""
+                words.reverse_each { |word| str += "#{word} " }
+                p str #=> "sixth fifth fourth third second first "
+
+        21) map: The map method can be used to create a new array based on the 
+        original array, but with the values modified by the supplied block
+                e.g.
+                arr.map { |a| 2*a }   #=> [2, 4, 6, 8, 10]
+                arr                   #=> [1, 2, 3, 4, 5]
+                arr.map! { |a| a**2 } #=> [1, 4, 9, 16, 25]
+                arr                   #=> [1, 4, 9, 16, 25]
+
+        22) select
+        23) reject
+        24) drop_while
+                e.g.
+                arr = [1, 2, 3, 4, 5, 6]
+                arr.select { |a| a > 3 }     #=> [4, 5, 6]
+                arr.reject { |a| a < 3 }     #=> [3, 4, 5, 6]
+                arr.drop_while { |a| a < 4 } #=> [4, 5, 6]
+                arr                          #=> [1, 2, 3, 4, 5, 6]
+
+        25) delete_if
+        26) keep_if     
+                e.g.
+                arr.delete_if { |a| a < 4 } #=> [4, 5, 6]
+                arr                         #=> [4, 5, 6]
+                arr = [1, 2, 3, 4, 5, 6]
+                arr.keep_if { |a| a < 4 } #=> [1, 2, 3]
+                arr                       #=> [1, 2, 3]
+
+        27) new:
+                new(size=0, default=nil) click to toggle source
+                new(array)
+                new(size) {|index| block }
+
+                a = Array.new(2, Hash.new)
+                # => [{}, {}]
+
+        28) clear: Removes all elements from self.
+
+** rails Framework
+        rails is a framework which does both work backend and frontend
+                rails new project_name  # to create new project through rails
+                rails server            # to start the rails server
+                localhost:3030          # onto crome to start the project        
+
+        * List of gems
+          1) rails
+          2) bundler
+
+** logging
+        Five different levels of logging in Ruby on rails are 
+        1) debug
+        2) info:- this is the bydefault level
+        3) warn
+        4) error
+        5) fatal        
+
+** ! operator
+        this operator is used to update the current object instead of assign the modified 
+        changes to another object
+
+** erb (embedded Ruby)
+
+
+
+**Ruby gems
+        Gems are plugins, additional functionalities of a product designed to fulfill specific goals.
+        IMP link- https://codebrahma.com/best-gems-for-ruby-on-rails-web-applications/
+
+        1) Rails
+                People often forget that Rails itself is a gem written in Ruby. It is a web 
+                application framework that includes all the basic requirements for making 
+                database-backed web applications adherent to the 
+                Model-View-Controller (MVC) template. It facilitates use of web 
+                standard languages like HTML, JavaScript or CSS inside the application environment.
+
+        2) Turbolinks
+                Turbolinks speeds up opening links in the application by letting the browser refresh 
+                only those parts of the page that change and keeping the already compiled 
+                JavaScript and CSS in place. Turbolinks is very light 
+                on memory, which makes it perfectly suited for mobile 
+                applications and is self-contained, This is an introduction to three types 
+                of caching techniques: page, action and fragment caching. By default Rails 
+                provides fragment caching. In order to use page and action caching you 
+                will need to add  actionpack-page_caching and actionpack-action_caching to your Gemfiletion.
+
+        3) Devise
+                This is an introduction to three types of caching techniques: page, 
+                action and fragment caching. By default Rails provides fragment caching. 
+                In order to use page and action caching you will need to add  actionpack-page_caching 
+                and actionpack-action_caching to your Gemfile
+                Devise is a flexible authentication solution for Rails based on Warden. 
+                It comprises 10 modules that might be used as needed without fostering 
+                any dependencies in the code and also permits you 
+                to have more than one model signed in at the same time. Devise executes in a completely 
+                thread-safe manner on YARV. Devise supports authentication through both Forms and HTTP Basic 
+                Authentication, supports OmniAuth and has various useful features like sending emails 
+                with authentication confirmation instructions or password reset instructions, etc.
+
+        4) Sidekiq
+                Sidekiq is a full-featured framework for Ruby that offers simple and efficient 
+                background processing and is designed to be easy to integrate with any modern Rails 
+                application. Sidekiq uses multithreading to handle several jobs in the same process 
+                simultaneously. It is fully compatible with Resque.
+
+        5) kaminari
+
+
+
+
+**TDD (Test-driven development)
+        Test-driven development" refers to a style of programming in which 
+        three activities are tightly interwoven: coding, testing (in the form of writing unit tests)
+        and design (in the form of refactoring).
+
+**assets
+        Generally asset is anything that browser loads after it gets the HTML 
+        page. Meaning javascript, css and any images. But as you pointed out there are two 
+        different image types in a rails project.
+        1) the images related to your css and layout design, those go under the app/assets/images 
+        2) the images that your users upload, those normally go into the public/system or public/uploads 
+        folder depending on what you use to receive the uploads
+
+        The lib/assets (or sometimes vendor/assets) is where you supposed to place js/css/images 
+        related to your front-end design and provided by third party libs. Say if you want to pull
+        in some css or a js framework, that were you should place it.
+
+        And finally public/assets is where rails will compile your layout assets from 
+        the app/assets and vendor/assets folders when you run rake assets:precompile task for production.
+
+        To have it short, your design stuff goes to app/assets, and the user uploads go into public/system
+
+**Asset Pipeline
+        The asset pipeline provides a framework to concatenate and minify or compress 
+        JavaScript and CSS assets. It also adds the ability to write these assets in other 
+        languages and pre-processors such as CoffeeScript, Sass and ERB. It allows assets in 
+        your application to be automatically combined with assets from other gems.
+
+        The asset pipeline is implemented by the sprockets-rails gem, and is enabled by default. 
+        You can disable it while creating a new application by passing the --skip-sprockets option.
+
+        * command - rails new appname --skip-sprockets
+        * use - Rails automatically adds the sass-rails, coffee-rails and uglifier 
+        gems to your Gemfile, which are used by Sprockets for asset compression:
+
+
+**caching
+        This is an introduction to three types of caching techniques: page, 
+        action and fragment caching. By default Rails provides fragment caching. 
+        In order to use page and action caching you will need to add  actionpack-page_caching 
+        and actionpack-action_caching to your Gemfile
+
+        1) Page Caching
+                Page caching is a Rails mechanism which allows the request for a 
+                generated page to be fulfilled by the webserver (i.e. Apache or NGINX) 
+                without having to go through the entire Rails stack. While this 
+                is super fast it can't be applied to every situation (such as pages 
+                that need authentication). Also, because the webserver is serving a file 
+                directly from the filesystem you will need to implement cache expiration.
+
+        2) Action Caching
+                Page Caching cannot be used for actions that have before 
+                filters - for example, pages that require authentication. This 
+                is where Action Caching comes in. Action Caching works like Page 
+                Caching except the incoming web request hits the Rails stack so 
+                that before filters can be run on it before the cache is served. 
+                This allows authentication and other restrictions to be run while 
+                still serving the result of the output from a cached copy.
+
+        3) Fragment Caching
+                Dynamic web applications usually build pages with a variety of 
+                components not all of which have the same caching characteristics. 
+                When different parts of the page need to be cached and expired separately 
+                you can use Fragment Caching.
+                Fragment Caching allows a fragment of view logic to be 
+                wrapped in a cache block and served out of the cache store 
+                when the next request comes in.
+
+
+Have a look on Third party API's
+
+when we want to write code that is very much specific to database 
+then it should not be written in Controller class it will go in 
+model's class ( note:- don’t make your Controller heavy )
+
+
+*Google Project
+SearchWord
+
+
+
+
+
+
+13300 - 443 = 5759
+
+20786 - 692 = 11764
+
+17523 + 692 = 18215
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

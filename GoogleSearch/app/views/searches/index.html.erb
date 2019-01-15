@@ -1,0 +1,12 @@
+<h1>Search what u seek</h1>
+
+<%= form_for :search do |s| %>
+  <p>
+    <%= s.label :Google_Search %>
+    <%= s.text_field :search %>
+  </p>
+  <br>
+  <p>
+    <%= submit_tag( "Search" ) %>
+  </p>
+<% end %>
